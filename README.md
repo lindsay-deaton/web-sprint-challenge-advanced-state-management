@@ -34,17 +34,17 @@ You are expected to be able to answer questions in these areas. Your responses c
 
 ### Task 1: Project Set Up
 
-- [ ] `fork & clone` this repository.
-- [ ] `cd` into the forked copy of this repository.
+- [x] `fork & clone` this repository.
+- [x] `cd` into the forked copy of this repository.
 
 **Setting up the CodeGrade webhook**
 
 Go [here](./CodeGrade-webhook.md) to setup the CodeGrade webhook before you begin.
 
 #### Setup Client Code
-- [ ] **LOOK** at your `src` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
-- [ ] **RUN** `npm install` to retrieve all `client-side` the dependencies.
-- [ ] **RUN** `npm start` to fire up your React application. There ought to be a pretty little message awaiting you welcoming you to the app. `Follow` the prompting.
+- [x] **LOOK** at your `src` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
+- [x] **RUN** `npm install` to retrieve all `client-side` the dependencies.
+- [x] **RUN** `npm start` to fire up your React application. There ought to be a pretty little message awaiting you welcoming you to the app. `Follow` the prompting.
 
 **LOOK** at all the files you've been given for this project. Note that you will be interacting with an api during this project. Below is documentation on how to interact with the **API**.
 
@@ -52,7 +52,7 @@ Go [here](./CodeGrade-webhook.md) to setup the CodeGrade webhook before you begi
 
 ##### GET '/smurfs'
 
-- [ ] Retrieve an array all the Smurfs in the Smurf DB by writing a `GET` to the endpoint `http:/localhost:3333/smurfs`.
+- [ ] Retrieve an array all the Smurfs in the Smurf DB by writing a `GET` to the endpoint `/smurfs`.
 - [ ] Double check that your response from the server is an array of smurfs.
 
 ```js
