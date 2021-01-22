@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+import useForm from "./../hooks/useForm"
 
 class AddForm extends React.Component {
+    
+    const handleSubmit = e => {
+        e.preventDefault();
+        
+    }
 
     render() {
         return(<section>
             <h2>Add Smurf</h2>
             <form>
                 <div className="form-group">
+
                     <label htmlFor="name">Name:</label><br/>
                     <input onChange={this.handleChange} name="name" id="name" />
+
+                    <label htmlFor="position">Position:</label><br/>
+                    <input onChange={this.handleChange} name="position" id="position" />
+
+                    <label htmlFor="nickname">Nickname:</label><br/>
+                    <input onChange={this.handleChange} name="nickname" id="nickname" />
+                    
+                    <label htmlFor="description">Description:</label><br/>
+                    <input onChange={this.handleChange} name="description" id="description" />
                 </div>
 
                 <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: </div>
