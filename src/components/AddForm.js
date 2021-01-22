@@ -1,40 +1,81 @@
 import React, { useState } from 'react';
-import useForm from "./../hooks/useForm"
+// import SmurfDisplay from "./SmurfDisplay";
+import { connect } from "react-redux";
 
-class AddForm extends React.Component {
+const initialValues = {
+    Name: "",
+    Position: "",
+    Nickname: "",
+    Description: "",
+}
+
+const AddForm = (props) => {
+    const [values, setValues] = useState(initialValues);
     
-    const handleSubmit = e => {
-        e.preventDefault();
-        
-    }
+const handleSubmit = e => {
+    e.preventDefault();
+    props.addSmurf(values)
+}
 
-    render() {
-        return(<section>
-            <h2>Add Smurf</h2>
-            <form>
-                <div className="form-group">
+const handleChange = e => {
+    setValues({...values, [e.target.name]: e.target.value})
+}
 
-                    <label htmlFor="name">Name:</label><br/>
-                    <input onChange={this.handleChange} name="name" id="name" />
+render() {
+        return (
+            
+    <section>
+        <h2>Add Smurf</h2>
+        <form onSubmit={handleSubmit}>
+            <div className="form-group">
 
-                    <label htmlFor="position">Position:</label><br/>
-                    <input onChange={this.handleChange} name="position" id="position" />
+                <label htmlFor="name">Name:</label><br/>
+                <input
+                    value={value.name}
+                    onChange={handleChange}
+                    name="name"
+                    id="name"
+                />
 
-                    <label htmlFor="nickname">Nickname:</label><br/>
-                    <input onChange={this.handleChange} name="nickname" id="nickname" />
-                    
-                    <label htmlFor="description">Description:</label><br/>
-                    <input onChange={this.handleChange} name="description" id="description" />
+                <label htmlFor="position">Position:</label><br/>
+                <input
+                    value={value.position}
+                    onChange={handleChange}
+                    name="position"
+                    id="position" />
+
+                <label htmlFor="nickname">Nickname:</label><br/>
+                <input
+                    value={value.nickname}
+                    onChange={handleChange}
+                    name="nickname"
+                    id="nickname" />
+                
+                <label htmlFor="description">Description:</label><br/>
+                <input
+                    value={value.description}
+                    onChange={handleChange}
+                    name="description"
+                    id="description" />
                 </div>
 
                 <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: </div>
                 <button>Submit Smurf</button>
             </form>
-        </section>);
+            </section>
+        );
     }
 }
 
-export default AddForm;
+const mapStateToProps = (state) => {
+    return {
+        smurfs: state.smurfs,
+        isLoading: state.isLoading,
+        error: state.error,
+    }
+}
+
+export default connect(mapStateToProps, {addSmurf})(AddForm)
 
 //Task List:
 //1. Add in all necessary import components and library methods.
